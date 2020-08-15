@@ -2,6 +2,7 @@
 
 $this->on('admin.init', function() {
 
+    // replace logo on login page and in top bar
     $this->on(['app.layout.header', 'app.login.header'], function() {
 
         $config = $this->retrieve('whitelabel', false);
@@ -37,6 +38,34 @@ $this->on('admin.init', function() {
         if ($config['hideName'] ?? false) echo '.app-name {display: none;}';
 
         echo '</style>';
+
+    });
+
+    // add custom color picker to settings of collections, singletons and forms
+    $this->on('collections.settings.aside', function() {
+
+        $colors = $this->retrieve('config/whitelabel/colors', []);
+        $bind   = 'collection';
+
+        $this->renderView('whitelabel:views/partials/color-picker.php', compact('colors', 'bind'));
+
+    });
+
+    $this->on('singletons.settings.aside', function() {
+
+        $colors = $this->retrieve('config/whitelabel/colors', []);
+        $bind   = 'singleton';
+
+        $this->renderView('whitelabel:views/partials/color-picker.php', compact('colors', 'bind'));
+
+    });
+
+    $this->on('forms.settings.aside', function() {
+
+        $colors = $this->retrieve('config/whitelabel/colors', []);
+        $bind   = 'form';
+
+        $this->renderView('whitelabel:views/partials/color-picker.php', compact('colors', 'bind'));
 
     });
 
