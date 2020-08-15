@@ -1,11 +1,11 @@
 <?php
 /**
- * Set a custom logo in Cockpit CMS
+ * Custom logo and custom colours for Cockpit CMS
  * 
  * @see       https://github.com/raffaelj/cockpit_WhiteLabel/
  * @see       https://github.com/agentejo/cockpit/
  * 
- * @version   0.1.0
+ * @version   0.1.1
  * @author    Raffael Jesche
  * @license   MIT
  */
