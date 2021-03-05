@@ -41,6 +41,12 @@ $this->on('admin.init', function() {
 
     });
 
+    // replace favicon
+    // to do: url guessing like logo and documentation
+    if ($favicon = $this->retrieve('config/whitelabel/favicon', false)) {
+        $this->helper('admin')->favicon = $favicon;
+    }
+
     // add custom color picker to settings of collections, singletons and forms
     $this->on('collections.settings.aside', function() {
 
